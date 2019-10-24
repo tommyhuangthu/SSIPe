@@ -1,0 +1,4 @@
+these are the dataset used to test the performance of SSIPe on binding affinity change prediciton. There are four test sets in total: 
+(1) TestSet1, the standard test set, consisting of 734 mutations from 59 structures; (2) TestSet2, a test set by splitting multi-chain 
+complexes into pairwise dimers; (3) T55 and (4) T56 from the 26th CAPRI, both of which are three-chain complexes and are split in the 
+same way as TestSet2.
