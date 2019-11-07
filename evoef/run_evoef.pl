@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl -w
 ######################################################
 #this script is used to calculate the EvoEF ddG scores
 # Input:  complex.pdb
@@ -17,7 +17,8 @@ my $evoef = "$bin_path/EvoEF/src/EvoEF";
 my $par_dir = "$bin_path/EvoEF/src/data";
 
 if(@ARGV != 3){
-  printf "Usage: run_evoef.pl  complex.pdb  mutList.txt  evoef_score.txt";
+  printf "Usage: run_evoef.pl  complex.pdb  mutList.txt  evoef_score.txt\n";
+  exit;
 }
 
 
@@ -38,9 +39,40 @@ if(not -d "data"){
 my $individual_list = "individual_list.txt";
 open EVOSCORE, ">$scorefile";
 for(my $i=0; $i<@mutants; $i++){
+  #check mutation
+  my $mutation=$mutants[$i];
+  $mutation =~ s/;//g;
+  my @new=();
+  my @temp=split(/,/,$mutation);
+  for(my $j=0;$j<@temp;$j++){
+    my $first=substr $temp[$j],0,1;
+    my $last=substr $temp[$j],-1;
+    if($first ne $last){
+     push @new, $temp[$j];
+    }
+  }
+
+  #if the mutation is that amino acids are mutated into themselves
+  if(@new==0){
+    my $preddg=0;
+    printf EVOSCORE "%.3f\n",$preddg;
+    next;
+  }
+  #compile the effective mutations
+  my $newmutation='';
+  for(my $j=0;$j<@new;$j++){
+    if($j==0){
+      $newmutation=$newmutation.$new[$j];
+    }
+    else{
+      $newmutation=$newmutation.",".$new[$j];
+    }
+  }
+
   #generate a temp $individual_list file
   open INDI,">$individual_list";
-  print INDI "$mutants[$i]\n";
+  #print INDI "$mutants[$i]\n";
+  print INDI "$newmutation;\n";
   close INDI;
   #repair and minimize the initial structure
   my $cpx1 = $complex;
@@ -63,10 +95,14 @@ for(my $i=0; $i<@mutants; $i++){
     $preddg = $dgmt - $dgwt;
   }
   else{
-    print "EvoEF failed generating wild-type or mutant model for mutant $mutants[$i]\n";
+    #print "EvoEF failed generating wild-type or mutant model for mutant $mutants[$i]\n";
+    print "EvoEF failed generating wild-type or mutant model for mutant $newmutation\n";
     $preddg = 0;
   }
   printf EVOSCORE "%.3f\n",$preddg;
+  if(-e $individual_list){
+    `rm -rf $individual_list`;
+  }
 }
 close EVOSCORE;
 
