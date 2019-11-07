@@ -34,7 +34,6 @@ my $ssip_score      = $ARGV[4];
 
 my $ssippath      = "$bin_path/SSIPserver";
 my $sort_ialign   = "$bin_path/sort_ialign.py";
-my $sort_seqalign = "bin_path/sort_seqalign.py"; 
 
 #sort the structure alignment
 `$sort_ialign $structure_align $structure_align.sort`;
