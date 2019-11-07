@@ -82,7 +82,7 @@ int EnergyTermWeighting(double *energyTerms){
   weights[17]=0.3036;
   weights[18]=0.0800;
   weights[19]=0.0000;
-
+/*
   //weights for residue-and-residue interaction in different chain
   weights[51]=0.6384;
   weights[52]=0.7904;
@@ -102,7 +102,28 @@ int EnergyTermWeighting(double *energyTerms){
   weights[67]=0.7200;
   weights[68]=0.6720;
   weights[69]=0.5040;
-
+*/
+  
+  //weights for residue-and-residue interaction in different chain
+  weights[51]=0.6112;
+  weights[52]=0.8130;
+  weights[53]=0.0000;
+  weights[54]=0.4137;
+  weights[55]=0.3756;
+  //inter-residue hydrogen bonds
+  //61-63 for hbbbbb:dis/the/phi
+  //64-66 for hbscbb:dis/the/phi
+  //67-69 for hbscsc:dis/the/phi
+  weights[61]=0.5000;
+  weights[62]=0.8800;
+  weights[63]=0.7500;
+  weights[64]=0.0000;
+  weights[65]=0.6105;
+  weights[66]=0.4096;
+  weights[67]=0.7516;
+  weights[68]=0.3576;
+  weights[69]=0.5014;
+  
   for(int i = 0; i < MAX_EVOEF_ENERGY_TERM_NUM; i++){
     energyTerms[i] *= weights[i];
   }
