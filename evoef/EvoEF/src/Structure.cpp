@@ -1016,8 +1016,8 @@ int ProteinSiteExpandHydroxylRotamers(Structure *pStructure, int chainIndex, int
     }
     // for tyr rotamers
     if(RotamerSetGetRepresentative(pRotamerSet, "TYR") != NULL ){
-      ResiTopoSetGet(pTopos, "THR", &tops);
-      ResidueTopologyFindCharmmIC(&tops, "HG1", &ics);
+      ResiTopoSetGet(pTopos, "TYR", &tops);
+      ResidueTopologyFindCharmmIC(&tops, "HH", &ics);
       double icPara_Tyr = ics.icParam[2];
       int addedCount=0;
       Rotamer tempRot;
