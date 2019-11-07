@@ -295,12 +295,13 @@ int ResidueReadXYZFromPDB(Residue* pThis, FileReader* pPDBFileReader,AtomParamsS
     }
     // read the hydrogen atoms, sometimes the hydrogen atom can have a name like '1HG1' in residue VAL
     if(strAtomName[0]=='H'){
-      ;
+      //continue;
     }
     else if(isdigit(strAtomName[0]) && strAtomName[1]=='H' && (int)strlen(strAtomName)==4){
       char tempName[MAX_LENGTH_ATOM_NAME+1];
       tempName[0]=strResName[1]; tempName[1]=strResName[2]; tempName[2]=strResName[3]; tempName[3]=strResName[0]; tempName[4]='\0';
       strcpy(strAtomName,tempName);
+      //continue;
     }
 
     if(firstLine){
