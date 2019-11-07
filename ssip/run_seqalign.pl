@@ -44,8 +44,8 @@ print "step 1: run psiblast\n";
 `$splitdimer $cpxpdb lig.pdb rec.pdb`;
 `$pdb2fas lig.pdb lig.fasta`;
 `$pdb2fas rec.pdb rec.fasta`;
-`$blast -query lig.fasta -out lig.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1 -max_target_seqs 10000`;
-`$blast -query rec.fasta -out rec.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1 -max_target_seqs 10000`;
+`$blast -query lig.fasta -out lig.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1 -num_iterations 3`;
+`$blast -query rec.fasta -out rec.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1 -num_iterations 3`;
 #convert xml to msa
 print "step 2: xml2msa\n";
 `$xml2msa  -in lig.xml -out lig.msa`;
