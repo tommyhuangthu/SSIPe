@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl -w
 #################################################################################
 # this script is used to call the SSIP program to calculate the profile score
 # Input:  
@@ -33,11 +33,13 @@ my $ssip_score      = $ARGV[4];
 
 
 my $ssippath      = "$bin_path/SSIPserver";
-my $sort_ialign   = "$bin_path/sort_ialign.py";
+#my $sort_ialign   = "$bin_path/sort_ialign.py";
+#my $sort_seqalign = "$bin_path/sort_seqalign.py"; 
+my $sort_align = "$bin_path/sort_align.pl"; 
 
 #sort the structure alignment
-`$sort_ialign $structure_align $structure_align.sort`;
-`mv $structure_align.sort $structure_align`;
+`$sort_align $structure_align`;
+`$sort_align $sequence_align`;
 `cp -r $ssippath/parameter .`;
 `$ssippath/SSIP --command=DDG  --isscore=$isscore  --mutant_file=$mut_list --structure_align=$structure_align --sequence_align=$sequence_align --ssipscore_file=$ssip_score`;
 if(-d "./parameter"){

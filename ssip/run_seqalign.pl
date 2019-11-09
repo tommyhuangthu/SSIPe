@@ -1,5 +1,4 @@
-#!/usr/bin/env perl
-
+#!/usr/bin/perl -w
 ########################################################################################################
 # this script is used to run sequence alignment using PSIBLAST and build sequence interface alignment 
 # using the interface defined by iAlign
@@ -18,7 +17,7 @@ use Cwd 'abs_path';
 use File::Basename;
 
 if(@ARGV != 3){
-  printf "Usage: run_seqalign.pl seq.fasta complex.pdb strcuture_align.out sequence_align.out\n";
+  printf "Usage: run_seqalign.pl complex.pdb strcuture_align.out sequence_align.out\n";
   exit;
 }
 
@@ -42,10 +41,21 @@ my $pdb2fas = "$binpath/seqalign/pdb2fas.pl";
 print "Now run PSI-BLAST to build sequence-based interface profile\n";
 print "step 1: run psiblast\n";
 `$splitdimer $cpxpdb lig.pdb rec.pdb`;
+my $ligchn=`head -1 lig.pdb`;
+$ligchn = substr $ligchn,21,1;
+my $recchn=`head -1 rec.pdb`;
+$recchn = substr $recchn,21,1;
+if($ligchn gt $recchn){
+  `mv lig.pdb temp.pdb`;
+  `mv rec.pdb lig.pdb`;
+  `mv temp.pdb rec.pdb`;
+}
 `$pdb2fas lig.pdb lig.fasta`;
 `$pdb2fas rec.pdb rec.fasta`;
-`$blast -query lig.fasta -out lig.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1 -num_iterations 3`;
-`$blast -query rec.fasta -out rec.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1 -num_iterations 3`;
+#`$blast -query lig.fasta -out lig.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1 -num_iterations 3`;
+#`$blast -query rec.fasta -out rec.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1 -num_iterations 3`;
+`$blast -query lig.fasta -out lig.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1`;
+`$blast -query rec.fasta -out rec.xml -db $database -outfmt 5 -evalue 0.001 -max_hsps 1`;
 #convert xml to msa
 print "step 2: xml2msa\n";
 `$xml2msa  -in lig.xml -out lig.msa`;

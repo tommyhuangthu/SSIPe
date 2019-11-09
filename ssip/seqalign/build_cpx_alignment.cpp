@@ -30,6 +30,14 @@ char *msa1file = NULL;
 char *msa2file = NULL;
 char *cpxoutfile = NULL;
 
+
+typedef struct _Comm{
+  int spe;
+  int count;
+  char content[MAX_PRO_PAIR][MAX_DEF_LENG];
+}Comm;
+
+
 int make_new_files(){
   char cmd[1000];
   sprintf(cmd, "cp -rf %s msa1\n", msa1file);
@@ -51,19 +59,14 @@ int sort_msa(){
 // find common organisms of the two MSAs and build a pseudolink 
 // between two proteins for each organism
 int find_common_species_and_build_links(){
+  Comm* comms=(Comm*)malloc(sizeof(Comm)*MAX_SPE_PAIR);
   printf("Find common species of two MSAs and build links between proteins ... \n");
-  struct Comm{
-    int spe;
-    int count;
-    char content[MAX_PRO_PAIR][MAX_DEF_LENG];
-  };
   // set a maximum common specie number: 1000
-  struct Comm comms[MAX_SPE_PAIR];
   for(int i = 0; i < MAX_SPE_PAIR; i++){
     comms[i].count = 0;
     // for each common specie, set the maximum protein pair: 1000
     for(int j = 0; j < MAX_PRO_PAIR; j++){
-      strcpy(comms[i].content[j], "\0");
+      strcpy(comms[i].content[j], "");
     }
   }
   int comm_spe_count = 0;
@@ -113,12 +116,12 @@ int find_common_species_and_build_links(){
   }
   fclose(f1); fclose(f2);
   // show the comm species
-  /*for(int index = 0; index < comm_spe_count; index++){
+  for(int index = 0; index < comm_spe_count; index++){
     printf("The following are common protein pairs for species: %d\n", comms[index].spe);
     for(int index2 = 0; index2 < comms[index].count; index2++){
       printf("%s\n", comms[index].content[index2]);
     }
-  }*/
+  }
   printf("Done.\n");
 
   // find the real link and the link score if possible via the species based link files

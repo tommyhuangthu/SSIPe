@@ -33,8 +33,8 @@ if(not -e $structure_align){
 }
 
 #sort the cpx_alignment file
-`sort -k3,3nr -k1,1r -k2,2r $cpx_alignment > $cpx_alignment.sort`;
-`mv $cpx_alignment.sort $cpx_alignment`;
+#`sort -k3,3nr -k1,1r -k2,2r $cpx_alignment > $cpx_alignment.sort`;
+#`mv $cpx_alignment.sort $cpx_alignment`;
 
 my %AminoList3to1 = (
   "GLY" => "G", "PRO" => "P", "ASP" => "D", "GLU" => "E", "LYS" => "K",
@@ -208,8 +208,8 @@ for(my $k = 0; $k < @lines; $k++){
   my $linkscore = $strings[2];
   my @ligseq = split(//,$lig);
   my @recseq = split(//,$rec);
-  #my $name = "aln$k";
-  my $name = sprintf "aln%03d",$k+1;
+  my $name = "aln$k";
+  #my $name = sprintf "aln%03d",$k+1;
   my $num = 0;
   for(my $j = 0; $j < @lig_inf_index_from_zero; $j++){
     if($ligseq[$lig_inf_index_from_zero[$j]] ne '-'){
