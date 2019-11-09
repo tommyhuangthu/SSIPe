@@ -1,0 +1,2 @@
+extint is a program distributed with IS-score to extract interface from 
+protein complex. Just run "make" to compile. extint.py is a simple python wrapper around the main extint program.
