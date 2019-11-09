@@ -3,4 +3,4 @@ SSIPe is a method to calculate binding free-energy changes (ΔΔ<i>G</i><sub>bin
 
 Due to the restriction of uploading large files (> 25 Mb per file), only the source code, binaries and training and test sets are uploaded to this repository. The NIL and STRING databases, which are 1.1 Gb and 2.4 Gb respectively, cannot be uploaded, but they can be found at https://zhanglab.ccmb.med.umich.edu/SSIPe/download/. The source code and training/test data are also provided in our website. After the two libraries (NIL and STRING) are downloaded from the website, they can be unzipped and put into the directory /bin/ssip.<br><br>
 
-Please contact Dr. Xiaoqiang Huang (xiaoqiah@umich.edu or tommyhuangthu@foxmail.com) if you have any question about SSIPe
+For SSIPe webserver, user can refer to https://zhanglab.ccmb.med.umich.edu/SSIPe/. Please contact Dr. Xiaoqiang Huang (xiaoqiah@umich.edu or tommyhuangthu@foxmail.com) if you have any question about SSIPe.
