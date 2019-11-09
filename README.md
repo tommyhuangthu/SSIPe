@@ -3,7 +3,6 @@ SSIPe is a method to calculate binding free-energy changes (ΔΔ<i>G</i><sub>bin
 
 Due to the restriction of uploading large files (> 25 Mb per file), only the source code, binaries and training and test sets are uploaded to this repository. The NIL and STRING databases, which are 1.1 Gb and 2.4 Gb respectively, cannot be uploaded, but they can be found at https://zhanglab.ccmb.med.umich.edu/SSIPe/download/. The source code and training/test data are also provided in our website. After the two libraries (NIL and STRING) are downloaded from the website, they can be unzipped and put into the directory /bin/ssip.<br><br>
 
-
 How to run SSIPe?<br>
 SSIPe can only be run in a Linux system. User can download the program and libraries which are mentioned above and directly run the run_SSIPe.pl script following the instructions in example/README. The results will be printed out in result.txt. Before running the program, the user should check if some of the external binaries are executable. Specifically, the user should check:<br>
 bin/evoef/EvoEF/src/EvoEF<br>
