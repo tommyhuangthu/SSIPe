@@ -15,6 +15,6 @@ bin/ssip/ncbi-blast-2.7.1+/bin/makeblastdb<br>
 bin/ssip/seqalign/build_cpx_alignment<br>
 bin/ssip/seqalign/PDB2FAS<br>
 bin/ssip/SSIPserver/SSIP<br>
-Due to size restriction, the psibalst and makeblastad program are uploaded as zipped file (.zip), user can unzip them into the same directory. For the other programs, user may need to use 'chmod +x' to make the other binaries executable or if neccessary, the user can recompile and build the binaries. For recompiling EvoEF, the user can go to the bin/evoef/EvoEF/src/ directory and run 'g++ -O3 -o EvoEF *.cpp' to rebuild EvoEF. For recompiling SSIP, the user can go to the bin/ssip/SSIPserver/ and run 'g++ -O3 -o SSIP src/*.cpp' to rebuild SSIP.<br><br>
+Due to size restriction, the psibalst and makeblastad program are uploaded as zipped file (.zip), user can unzip them into the same directory. For the other programs, user may need to use 'chmod +x' to make the other binaries executable or if neccessary, the user can recompile and build the binaries. For recompiling EvoEF, the user can go to the bin/evoef/EvoEF/src/ directory and run 'g++ -O3 -o EvoEF \*.cpp' to rebuild EvoEF. For recompiling SSIP, the user can go to the bin/ssip/SSIPserver/ and run 'g++ -O3 -o SSIP src/\*.cpp' to rebuild SSIP.<br><br>
 
 For SSIPe webserver, user can refer to https://zhanglab.ccmb.med.umich.edu/SSIPe/. Please contact Dr. Xiaoqiang Huang (xiaoqiah@umich.edu or tommyhuangthu@foxmail.com) if you have any question about SSIPe.
