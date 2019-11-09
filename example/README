@@ -1,0 +1,11 @@
+This is an example to show how to run SSIPe to get ddG prediction.
+
+Run the following command line:
+  ../run_SSIPe.pl -pdb complex.pdb -mulist mutList.txt -forcefield SSIPE -isscore 0.5 > SSIPe.log 2>&1 &
+or:
+  ../run_SSIPe.pl -pdb complex.pdb -mulist mutList.txt -forcefield SSIP -isscore 0.5 > SSIPe.log 2>&1 &
+or:
+  ../run_SSIPe.pl -pdb complex.pdb -mulist mutList.txt -forcefield EVOEF -isscore 0.5 > SSIPe.log 2>&1 &
+
+After the calculation is finished, the ddG result will be presented in the 'result.txt' file.
+If running the 1st or the 3rd command line, the mutant models will be constructed using EvoEF.

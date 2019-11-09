@@ -1,0 +1,12 @@
+Interface residues:
+chain_ID_A: A
+residue_A:   18    21    22    25    28    41    42    45    46    47    48    51    52    56    61    62    63    64    65    67    68   153   156   157   160   161   163   164   165   167   168   171   178  
+chain_ID_B: B
+residue_B:   11    12    30    33    34    35    57    60    61    62    63    64    65    67    79    80    81    82    83    85    86   119   120   121   122   123   124   126   172   173   174   175  
+Alignments:
+PDB   chA chB ifResNum alnResNum score ifSeqA ifSeqB
+query  A   B   65   65  1.000  HHQFYKYLQNPSLEPSNRETQYRKDKETFRICC RERQEWSTSIWIPCEKCFSDEDIQKGWVRNSG
+3hhrAB A   B   59   56  0.803  HHQFYKYLQ-P---PSNR-TQYRKDKETFRICC RE---W-TSIWIPCEKCFSDEDIQKGWMRNSG
+3n0pAB A   B   53   51  0.596  HAN--ITI---AN-PEDKEA-HRRHKDNYKLCC KEE-G-KTSMWRTI--Y-DTYDLKTGWTDH--
+1f6fAB A   B   48   45  0.566  NSK----V---I--PNSK-AI-HRSKYTYRICC KEE----TSIWKII--Y-DTYDVKTGWT-DH-
+1bp3AB A   B   61   56  0.503  HHQ--YKL-NPSL-PSNRETQYRKDKETFRICC KEEGTEK-SMW-T--EIYRTDDLKTGWTDH-Y
