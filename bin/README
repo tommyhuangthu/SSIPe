@@ -1,0 +1,38 @@
+#### How to run SSIPe as standalone program? ####
+
+[1] Make your input folder. The PDB format complex structure you want to analyze
+    is named "complex.pdb". The list of mutations should be listed in 
+    "mutList.txt" in FoldX individual list format:
+    	
+        QA22D;
+        EB12Y;
+	HA18F,QA22D;
+
+[2] The main script that calculate the free energy is "get_final_score.py", "
+get_final_score2.py" and/or "get_final_score3.py". The three scripts use different
+force fields to calculate the scores. "get_final_score.py" uses evolutionary profile
+and physical energy combined force field (SSIPE), "get_final_score2.py" uses only
+evolutionary profile force field (SSIP), and "get_final_score3.py" uses only physics-
+based force field (EvoEF). Based on our benchmark, using the SSIPE score can achieve
+the highest accurary, while using EvoEF can achieve the highest speed with sufficiently
+good accuracy.
+    run the following command to make the prediction:
+
+        get_final_score.py data_dir
+        get_final_score2.py data_dir
+        get_final_score3.py data_dir
+
+    Where "data_dir" is your input folder as prepared in [1]. The final result
+    will be available at "result.txt" and "index.html".
+
+#### LICENSE ####
+
+The SSIPe is free and open-source software. SSIPe uses third party program 
+including iAlign and PSI-BLAST whose license is subjected to corresponding 
+developers.
+
+If SSIPe is useful in your work, please cite:
+    Xiaoqiang Huang, Wei Zheng, Robin Pearce, Yang Zhang. SSIPe: Accurately 
+    estimating protein-protein binding affinity change upon SNP mutations using 
+    evolutionary profiles in combination with an optimized physical energy 
+    function. (submitted to Bioinformatics)

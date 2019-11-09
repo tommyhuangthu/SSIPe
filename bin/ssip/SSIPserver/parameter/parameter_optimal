@@ -1,0 +1,14 @@
+amino-acid_types                 A     C     D     E     F     G     H     I     K     L     M     N     P     Q     R     S     T     V     W     Y
+fix_dependent_pseudo-counts      0
+aas_dependent_pseudo-counts     25    27    23    24    30    25    25    27    22    33    29    23    18    22    24    23    28    28    32    31
+gap_dependent_pseudo-counts      0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+evo_dependent_pseudo-counts      0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+aas_dependent_lamda0          5.00
+ial_weight           1.00
+ial_isscore_cutoff   0.50
+ial_count_cutoff     10000
+psi_weight           1.55
+psi_linkscore_cutoff 0.80
+psi_seqidhigh_cutoff 0.60
+psi_seqidlow_cutoff  0.30
+psi_count_cutoff     10000
